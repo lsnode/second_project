@@ -5,4 +5,5 @@ public class firs_class {
     int b;
     int c;
     int d;
+    int h;
 }
