@@ -1,20 +1,39 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome! WORLD");
+        System.setProperty("webbdriver.chrome.driver",System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.get("https://demoqa.com/text-box");
+        driver.manage().window().maximize();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        WebElement userNameInput = driver.findElement(By.xpath("//input[@id='userName']"));
+        userNameInput.sendKeys("Jijka");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        WebElement userEmail = driver.findElement(By.xpath("//input[@id='userEmail']"));
+        userEmail.sendKeys("jijka@gmail.com");
 
-        }
+        WebElement userCurrentAddress = driver.findElement(By.xpath("//*[@id='currentAddress']"));
+        userCurrentAddress.sendKeys("Jijka-Street");
+////*[@id="permanentAddress"]
+        WebElement userPermanentAddress = driver.findElement(By.xpath("//*[@id='permanentAddress']"));
+        userPermanentAddress.sendKeys("jijlo-home");
+
+
+        WebElement btnSubmit = driver.findElement(By.xpath("//button[@id='submit']"));
+        btnSubmit.click();
+
+        //blockElements.click();
+
     }
 }

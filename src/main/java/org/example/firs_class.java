@@ -6,5 +6,4 @@ public class firs_class {
     int c;
     int d;
     int h;
-    int h;
 }
